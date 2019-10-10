@@ -39,4 +39,4 @@ Applicants will be given a temporary private repo in EagleDream's Gitlab account
 Optionally, the live application may be hosted somewhere and submitted along with the code. In all circumstances, the repo should include instructions for running the application and include all tools necessary to carry these instructions out.
 
 ## Resources
-The creative resources are attached as a .zip file.
+The creative resources are attached as a zip file.
