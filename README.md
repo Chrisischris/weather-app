@@ -59,7 +59,7 @@ The Eagledream Technologies logo should be used in the header of the page.
 The following colors should be used throughout the page.
 
 - Black (#000000): Used as the background color of the header, center circle, and footer. All of them have an opacity of 45%.
-- Gray (#BB3B3): Used as the unselected text color. Metric or Imperial / C or F.
+- Gray (#B3B3B3): Used as the unselected text color. Metric or Imperial / C or F.
 - White (#FFFFFF): Used as the main text color.
 
 ### TYPOGRAPHY
@@ -76,7 +76,7 @@ My Location (Left side of the page)
 Activities (Right side of the page)
 
 - title: Open Sans Semibold, 20px, #ffffff
-- info: Open Sans Light, 20px, #fffff
+- info: Open Sans Light, 20px, #ffffff
 
 Current Weather Information (Center of the page inside the circle)
 
