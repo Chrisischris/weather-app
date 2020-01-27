@@ -10,7 +10,7 @@ For most of the needed data, we recommend using the [Dark Sky API](https://darks
 
 ## Basic User Requirements
 
-For this application you will be targeting a desktop (1920x1080) and tablet (1024x768) viewport. Design mockups are available in the resources zip file in this repository.
+For this application you will be targeting a desktop (1920x1080) and tablet (1024x768) viewport.  Please make sure your design is responsive in that regard.  Some desktop resolution based design mockups are available for reference in the resources zip file in this repository.
 
 Upon entering the application, the user's location should be queried and fed into the Dark Sky API to retrieve the weather forecast that it provides. This data will provide the foundation for everything else in the base requirements.
 
