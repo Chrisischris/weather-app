@@ -1,0 +1,27 @@
+body, html {
+    height: 100%;
+}
+
+div {
+    color: #ffffff;
+}
+
+.bg {
+    background-image: url('../resources/background.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-ed {
+    background-color: #00000073;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.logo-ed {
+    max-height: 45px;
+    padding: 5px;
+}
