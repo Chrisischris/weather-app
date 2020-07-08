@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="./css/styles.css"  />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+    <script src="./js/timeAndDate.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -16,17 +17,17 @@
     <title>Weather</title>
 </head>
 
-<body class="bg">
+<body class="bg" onload="start()">
 
-    <div class="container-fluid header-ed">
+    <div class="container-fluid sticky-top header-ed">
         <div class="row">
             <div class="col-4">
                 <img src="resources/EDT-logo.png" class="logo-ed" alt="Logo">
             </div>
-            <div class="col-4 text-center">
+            <div id="time" class="col-4 text-center">
                 Time
             </div>
-            <div class="col-4 text-right">
+            <div id="date" class="col-4 text-right">
                 Date
             </div>
         </div>
