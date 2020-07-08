@@ -2,7 +2,7 @@ body, html {
     height: 100%;
 }
 
-div {
+* {
     color: #ffffff;
     font-family: 'Open Sans', sans-serif;
 }
@@ -24,4 +24,24 @@ div {
 .logo-ed {
     max-height: 45px;
     padding: 5px;
+}
+
+.table-title-ed {
+    font-weight: 600;
+    font-size: 20px;
+    border-bottom-width: 1pt;
+    border-bottom-color: #ffffff;
+    border-bottom-style: solid;
+}
+
+.table-cities-ed {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.circle-ed {
+    width: 600px;
+    height: 600px;
+    background-color: #00000073;
+    border-radius: 50%;
 }
