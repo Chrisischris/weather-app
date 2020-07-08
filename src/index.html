@@ -36,7 +36,7 @@
     <div class="container-fluid p-5">
         <div class="row">
             <!-- Left Panel -->
-            <div class="col-md-3 d-flex justify-content-center">
+            <div class="col-lg-3 d-flex justify-content-center">
                 <table>
                     <tr class="table-title-ed">
                         <th>My Location</th>
@@ -61,21 +61,23 @@
                 </table>
             </div>
             <!-- Center Panel -->
-            <div class="col-md-6 d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
                 <div class="circle-ed">
                     <div class="row align-items-center h-100">
                         <div class="col">
-                            <div class="row">
+                            <div class="row" style="height: 10px;">
                                 <div class="col text-center" style="font-size: 42px; font-weight: 600;">Location</div>
                             </div>
-                            <div class="row">
-                                <div class="col-2 text-center align-self-center" style="font-size: 28px; font-weight: 300;">
+                            <div class="row" style="height: 200px;">
+                                <div class="col-3 text-center align-self-center"
+                                    style="font-size: 28px; font-weight: 300;">
                                     low
                                     <br>
                                     0
                                 </div>
-                                <div class="col-8 text-center" style="font-size: 176px; font-weight: 600;">50</div>
-                                <div class="col-2 text-center align-self-center" style="font-size: 28px; font-weight: 300;">
+                                <div class="col-6 text-center" style="font-size: 176px; font-weight: 600;">50</div>
+                                <div class="col-3 text-center align-self-center"
+                                    style="font-size: 28px; font-weight: 300;">
                                     high
                                     <br>
                                     100
@@ -83,7 +85,8 @@
                             </div>
                             <div class="row">
                                 <div class="col text-center" style="font-size: 36px; font-weight: 300;">
-                                    <img src="resources/cloud.png" style="max-width: 75px;" alt="Weather Type" class="img-fluid">
+                                    <img src="resources/cloud.png" style="max-width: 75px;" alt="Weather Type"
+                                        class="img-fluid">
                                     <br>
                                     Info
                                 </div>
@@ -93,17 +96,32 @@
                 </div>
             </div>
             <!-- Right Panel -->
-            <div class="col-md-3 d-flex justify-content-center">
-                Activities
+            <div class="col-lg-3 d-flex justify-content-center">
+                <table>
+                    <tr>
+                        <td class="table-activities-title-ed">Kite Flying</td>
+                        <td class="table-cities-ed">20 km / hr</td>
+                    </tr>
+                    <tr>
+                        <td class="table-activities-title-ed">Jogging</td>
+                        <td class="table-cities-ed">22</td>
+                    </tr>
+                    <tr>
+                        <td class="table-activities-title-ed">Sking</td>
+                        <td class="table-cities-ed">0 cm</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="fixed-bottom footer-ed">
         <div class="row">
-            <div class="col text-center">
-                Footer
+            <div class="col-2"></div>
+            <div class="col-8 text-center">
+                Hourly
             </div>
+            <div class="col-2 text-right"></div>
         </div>
     </div>
 

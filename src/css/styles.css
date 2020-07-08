@@ -34,14 +34,27 @@ body, html {
     border-bottom-style: solid;
 }
 
+.table-activities-title-ed {
+    font-weight: 600;
+    font-size: 20px;
+}
+
 .table-cities-ed {
     font-weight: 300;
     font-size: 20px;
 }
 
 .circle-ed {
-    width: 600px;
-    height: 600px;
+    width: 450px;
+    height: 450px;
     background-color: #00000073;
     border-radius: 50%;
+    display:inline-block;
+}
+
+.footer-ed {
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    background-color: #00000073;
 }

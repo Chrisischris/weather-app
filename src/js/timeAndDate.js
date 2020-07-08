@@ -8,7 +8,13 @@ function start() {
     if (m < 10) {
         m = "0" + m
     };
-    document.getElementById('time').innerHTML = h + ":" + m;
+
+    if (h > 12) {
+        h -= 12;
+        document.getElementById('time').innerHTML = h + ":" + m + " PM";
+    } else {
+        document.getElementById('time').innerHTML = h + ":" + m+ " AM";
+    }
     document.getElementById('date').innerHTML = mon + "." + day + "." + year;
     var t = setTimeout(start, 500);
 }
