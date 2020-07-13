@@ -10,8 +10,9 @@ function startTime() {
     };
 
     if (h > 12) {
-        h -= 12;
-        document.getElementById('time').innerHTML = h + ":" + m + " PM";
+        document.getElementById('time').innerHTML = (h - 12) + ":" + m + " PM";
+    } else if (h == 0) {
+        document.getElementById('time').innerHTML = (h + 12) + ":" + m+ " AM";
     } else {
         document.getElementById('time').innerHTML = h + ":" + m+ " AM";
     }

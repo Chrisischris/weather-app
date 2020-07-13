@@ -121,7 +121,45 @@ function getWeather(coordinates) {
             }
 
             document.getElementById('actJog').innerHTML = resp.current.humidity + "%";
-            document.getElementById('actSki').innerHTML = resp.current.snow?["1h"] + " mm" : '0 mm';
+            document.getElementById('actSki').innerHTML = resp.current.snow ? ["1h"] + " mm" : '0 mm';
+
+            var hourImgs = document.getElementsByClassName('hourImg');
+            for (var i = 0; i < hourImgs.length; i++) { 
+                var type = resp.hourly[i].weather[0].id;
+                
+                switch (type) {
+                    case 200:
+                    case 300:
+                    case 500:
+                    case 600:
+                        hourImgs[i].src = "resources/rain.png";
+                        break;
+                    case 700:
+                        hourImgs[i].src = "resources/wind.png";
+                        break;
+                    default:
+                        hourImgs[i].src = "resources/cloud.png";
+                }
+            }
+
+            var hourTemps = document.getElementsByClassName('hourTemp');
+            for (var i = 0; i < hourTemps.length; i++) { 
+                hourTemps[i].innerHTML = Math.round(resp.hourly[i].temp);
+            }
+
+            var hourTimes = document.getElementsByClassName('hourTime');
+            for (var i = 0; i < hourTimes.length; i++) { 
+                var time = new Date(resp.hourly[i].dt * 1000);
+                hr = time.getHours();
+
+                if (hr > 12) {
+                    hourTimes[i].innerHTML = (hr - 12) + " PM";
+                } else if (hr == 0) {
+                    hourTimes[i].innerHTML = (hr + 12) + " AM";
+                } else {
+                    hourTimes[i].innerHTML = hr + " AM";
+                }
+            }
 
             return;
         }

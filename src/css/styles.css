@@ -59,3 +59,13 @@ body, html {
     line-height: 60px;
     background-color: #00000073;
 }
+
+.footer-temp-ed {
+    font-weight: 300;
+    font-size: 46px;
+}
+
+.footer-time-ed {
+    font-weight: 300;
+    font-size: 28px;
+}
