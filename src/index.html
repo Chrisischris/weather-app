@@ -78,22 +78,22 @@
                                     style="font-size: 28px; font-weight: 300;">
                                     low
                                     <br>
-                                    0
+                                    <span id="curTempLow">--</span>
                                 </div>
-                                <div class="col-6 text-center" style="font-size: 176px; font-weight: 600;">50</div>
+                                <div id="curTemp" class="col-6 text-center" style="font-size: 176px; font-weight: 600;">--</div>
                                 <div class="col-3 text-center align-self-center"
                                     style="font-size: 28px; font-weight: 300;">
                                     high
                                     <br>
-                                    100
+                                    <span id="curTempHigh">--</span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col text-center" style="font-size: 36px; font-weight: 300;">
-                                    <img src="resources/cloud.png" style="max-width: 75px;" alt="Weather Type"
+                                    <img id="curInfoImg" src="resources/cloud.png" style="max-width: 75px;" alt="Weather Type"
                                         class="img-fluid">
                                     <br>
-                                    Info
+                                    <span id="curInfo">Info</span>
                                 </div>
                             </div>
                         </div>
@@ -105,15 +105,22 @@
                 <table>
                     <tr>
                         <td class="table-activities-title-ed">Kite Flying</td>
-                        <td class="table-cities-ed">20 km / hr</td>
+                        <td class="table-cities-ed">
+                            <span id="actKite" title="Current Wind Speed">--</span>
+                        </td>
                     </tr>
                     <tr>
                         <td class="table-activities-title-ed">Jogging</td>
-                        <td class="table-cities-ed">22</td>
+                        <!-- Using humidity because chance of rain is unavailible with OpenWeather-->
+                        <td class="table-cities-ed">
+                            <span id="actJog" title="Current Humidy">--</span>
+                        </td>
                     </tr>
                     <tr>
                         <td class="table-activities-title-ed">Sking</td>
-                        <td class="table-cities-ed">0 cm</td>
+                        <td class="table-cities-ed">
+                            <span id="actSki" title="Snow volume for last hour">--</span>
+                        </td>
                     </tr>
                 </table>
             </div>

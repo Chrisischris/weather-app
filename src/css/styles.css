@@ -9,6 +9,7 @@ body, html {
 
 .bg {
     background-image: url('../resources/background.jpg');
+    background-color: black;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;

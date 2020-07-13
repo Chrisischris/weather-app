@@ -65,6 +65,7 @@ function setCity(cityName) {
             selectedLocation = [response[0].lat, response[0].lon];
             document.getElementById('cityNameCircle').innerHTML = cityName;
             getCity(selectedLocation, false);
+            getWeather(selectedLocation)
             return;
         }
     }
@@ -73,6 +74,7 @@ function setCity(cityName) {
 function setCurrentLocation() {
     selectedLocation = currentLocation;
     getCity(currentLocation, false);
+    getWeather(currentLocation)
 }
 
 function getWeather(coordinates) {
@@ -87,8 +89,40 @@ function getWeather(coordinates) {
 
     function processRequest(e) {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = JSON.parse(xhr.responseText);
-            console.log(response);
+            var resp = JSON.parse(xhr.responseText);
+            console.log(resp);
+
+            document.getElementById('curTempLow').innerHTML = Math.round(resp.daily[0].temp.min);
+            document.getElementById('curTemp').innerHTML = Math.round(resp.current.temp);
+            document.getElementById('curTempHigh').innerHTML = Math.round(resp.daily[0].temp.max);
+            document.getElementById('curInfo').innerHTML = resp.current.weather[0].main;
+
+            var curType = resp.current.weather[0].id;
+            curType = curType - (curType % 100);
+
+            switch (curType) {
+                case 200:
+                case 300:
+                case 500:
+                case 600:
+                    document.getElementById("curInfoImg").src = "resources/rain.png";
+                    break;
+                case 700:
+                    document.getElementById("curInfoImg").src = "resources/wind.png";
+                    break;
+                default:
+                    document.getElementById("curInfoImg").src = "resources/cloud.png";
+            }
+
+            if (units == 'imperial') {
+                document.getElementById('actKite').innerHTML = resp.current.wind_speed + " mph";
+            } else {
+                document.getElementById('actKite').innerHTML = resp.current.wind_speed + " m/s";
+            }
+
+            document.getElementById('actJog').innerHTML = resp.current.humidity + "%";
+            document.getElementById('actSki').innerHTML = resp.current.snow?["1h"] + " mm" : '0 mm';
+
             return;
         }
     }
