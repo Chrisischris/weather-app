@@ -13,6 +13,8 @@ function startTime() {
         document.getElementById('time').innerHTML = (h - 12) + ":" + m + " PM";
     } else if (h == 0) {
         document.getElementById('time').innerHTML = (h + 12) + ":" + m+ " AM";
+    } else if (h == 12) {
+        document.getElementById('time').innerHTML = h + ":" + m + " PM";
     } else {
         document.getElementById('time').innerHTML = h + ":" + m+ " AM";
     }

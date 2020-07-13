@@ -52,8 +52,11 @@ function getCity(coordinates, setListName) {
 }
 
 function setCity(cityName) {
-    var xhr = new XMLHttpRequest();
+    if (cityName == 'customLocation') {
+        cityName = document.getElementById('customLocation').value
+    }
 
+    var xhr = new XMLHttpRequest();
     xhr.open('GET', "https://us1.locationiq.com/v1/search.php?key=pk.fd2d679210df7e7b6ccb040ea1702593&q=" + cityName + "&format=json", true);
     xhr.send();
     xhr.onreadystatechange = processRequest;
@@ -153,11 +156,13 @@ function getWeather(coordinates) {
                 hr = time.getHours();
 
                 if (hr > 12) {
-                    hourTimes[i].innerHTML = (hr - 12) + " PM";
+                    hourTimes[i].innerHTML = (hr - 12) + "PM";
                 } else if (hr == 0) {
-                    hourTimes[i].innerHTML = (hr + 12) + " AM";
+                    hourTimes[i].innerHTML = (hr + 12) + "AM";
+                } else if (hr == 12) {
+                    hourTimes[i].innerHTML = hr + "PM";
                 } else {
-                    hourTimes[i].innerHTML = hr + " AM";
+                    hourTimes[i].innerHTML = hr + "AM";
                 }
             }
 
