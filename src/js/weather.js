@@ -170,3 +170,21 @@ function getWeather(coordinates) {
         }
     }
 }
+
+function setMetric() {
+    document.getElementById("metricBut").classList.replace('footer-unselc-ed', 'footer-selc-ed');
+    document.getElementById("imperialBut").classList.replace('footer-selc-ed', 'footer-unselc-ed');
+    document.getElementById("cBut").classList.replace('footer-unselc-ed', 'footer-selc-ed');
+    document.getElementById("fBut").classList.replace('footer-selc-ed', 'footer-unselc-ed');
+    units = 'metric';
+    getWeather(selectedLocation);
+}
+
+function setImperial() {
+    document.getElementById("imperialBut").classList.replace('footer-unselc-ed', 'footer-selc-ed');
+    document.getElementById("metricBut").classList.replace('footer-selc-ed', 'footer-unselc-ed');
+    document.getElementById("fBut").classList.replace('footer-unselc-ed', 'footer-selc-ed');
+    document.getElementById("cBut").classList.replace('footer-selc-ed', 'footer-unselc-ed');
+    units = 'imperial';
+    getWeather(selectedLocation);
+}

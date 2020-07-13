@@ -69,3 +69,15 @@ body, html {
     font-weight: 300;
     font-size: 28px;
 }
+
+.footer-selc-ed {
+    font-weight: 600;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.footer-unselc-ed {
+    font-weight: 300;
+    font-size: 28px;
+    color: #b3b3b3;
+}
