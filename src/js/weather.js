@@ -1,6 +1,7 @@
 var currentLocation;
 var selectedLocation;
 var units = 'imperial';
+var hourly = true;
 
 function getLocation() {
     var options = {
@@ -126,43 +127,76 @@ function getWeather(coordinates) {
             document.getElementById('actJog').innerHTML = resp.current.humidity + "%";
             document.getElementById('actSki').innerHTML = resp.current.snow ? ["1h"] + " mm" : '0 mm';
 
-            var hourImgs = document.getElementsByClassName('hourImg');
-            for (var i = 0; i < hourImgs.length; i++) { 
-                var type = resp.hourly[i].weather[0].id;
-                
-                switch (type) {
-                    case 200:
-                    case 300:
-                    case 500:
-                    case 600:
-                        hourImgs[i].src = "resources/rain.png";
-                        break;
-                    case 700:
-                        hourImgs[i].src = "resources/wind.png";
-                        break;
-                    default:
-                        hourImgs[i].src = "resources/cloud.png";
+            if (hourly) {
+                var hourImgs = document.getElementsByClassName('hourImg');
+                for (var i = 0; i < hourImgs.length; i++) { 
+                    var type = resp.hourly[i].weather[0].id;
+                    
+                    switch (type) {
+                        case 200:
+                        case 300:
+                        case 500:
+                        case 600:
+                            hourImgs[i].src = "resources/rain.png";
+                            break;
+                        case 700:
+                            hourImgs[i].src = "resources/wind.png";
+                            break;
+                        default:
+                            hourImgs[i].src = "resources/cloud.png";
+                    }
                 }
-            }
 
-            var hourTemps = document.getElementsByClassName('hourTemp');
-            for (var i = 0; i < hourTemps.length; i++) { 
-                hourTemps[i].innerHTML = Math.round(resp.hourly[i].temp);
-            }
+                var hourTemps = document.getElementsByClassName('hourTemp');
+                for (var i = 0; i < hourTemps.length; i++) { 
+                    hourTemps[i].innerHTML = Math.round(resp.hourly[i].temp);
+                }
 
-            var hourTimes = document.getElementsByClassName('hourTime');
-            for (var i = 0; i < hourTimes.length; i++) { 
-                var time = new Date(resp.hourly[i].dt * 1000);
-                hr = time.getHours();
+                var hourTimes = document.getElementsByClassName('hourTime');
+                for (var i = 0; i < hourTimes.length; i++) { 
+                    var time = new Date(resp.hourly[i].dt * 1000);
+                    hr = time.getHours();
 
-                if (hr > 12) {
-                    hourTimes[i].innerHTML = (hr - 12) + "PM";
-                } else if (hr == 0) {
-                    hourTimes[i].innerHTML = (hr + 12) + "AM";
-                } else if (hr == 12) {
-                    hourTimes[i].innerHTML = hr + "PM";
-                } else {
-                    hourTimes[i].innerHTML = hr + "AM";
+                    if (hr > 12) {
+                        hourTimes[i].innerHTML = (hr - 12) + "PM";
+                    } else if (hr == 0) {
+                        hourTimes[i].innerHTML = (hr + 12) + "AM";
+                    } else if (hr == 12) {
+                        hourTimes[i].innerHTML = hr + "PM";
+                    } else {
+                        hourTimes[i].innerHTML = hr + "AM";
+                    }
+                }
+            } else {
+                var hourImgs = document.getElementsByClassName('hourImg');
+                for (var i = 0; i < hourImgs.length; i++) { 
+                    var type = resp.daily[i].weather[0].id;
+                    
+                    switch (type) {
+                        case 200:
+                        case 300:
+                        case 500:
+                        case 600:
+                            hourImgs[i].src = "resources/rain.png";
+                            break;
+                        case 700:
+                            hourImgs[i].src = "resources/wind.png";
+                            break;
+                        default:
+                            hourImgs[i].src = "resources/cloud.png";
+                    }
+                }
+
+                var hourTemps = document.getElementsByClassName('hourTemp');
+                for (var i = 0; i < hourTemps.length; i++) { 
+                    hourTemps[i].innerHTML = "<span style='font-size: 25px'>" + Math.round(resp.daily[i].temp.min) + "/" + Math.round(resp.daily[i].temp.max) + "</span>";
+                }
+
+                var hourTimes = document.getElementsByClassName('hourTime');
+                var weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+                for (var i = 0; i < hourTimes.length; i++) { 
+                    var time = new Date(resp.daily[i].dt * 1000);
+                    hourTimes[i].innerHTML = weekday[time.getDay()];
                 }
             }
 
@@ -186,5 +220,19 @@ function setImperial() {
     document.getElementById("fBut").classList.replace('footer-unselc-ed', 'footer-selc-ed');
     document.getElementById("cBut").classList.replace('footer-selc-ed', 'footer-unselc-ed');
     units = 'imperial';
+    getWeather(selectedLocation);
+}
+
+function setHourly() {
+    document.getElementById("hourlyBut").classList.replace('footer-unselc-ed', 'footer-selc-ed');
+    document.getElementById("dailyBut").classList.replace('footer-selc-ed', 'footer-unselc-ed');
+    hourly = true;
+    getWeather(selectedLocation);
+}
+
+function setDaily() {
+    document.getElementById("dailyBut").classList.replace('footer-unselc-ed', 'footer-selc-ed');
+    document.getElementById("hourlyBut").classList.replace('footer-selc-ed', 'footer-unselc-ed');
+    hourly = false;
     getWeather(selectedLocation);
 }

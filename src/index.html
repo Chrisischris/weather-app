@@ -79,7 +79,7 @@
                     <div class="row align-items-center h-100">
                         <div class="col">
                             <div class="row" style="height: 10px;">
-                                <div id="cityNameCircle" class="col text-center"
+                                <div id="cityNameCircle" class="col text-center text-truncate"
                                     style="font-size: 42px; font-weight: 600;">Location</div>
                             </div>
                             <div class="row" style="height: 200px;">
@@ -139,7 +139,11 @@
 
     <div class="fixed-bottom footer-ed">
         <div class="row">
-            <div class="col-3"></div>
+            <div class="col-3 text-left align-self-end">
+                <span id="dailyBut" class="footer-unselc-ed" onclick="setDaily()">daily</span>
+                <span class="footer-selc-ed">/</span>
+                <span id="hourlyBut" class="footer-selc-ed" onclick="setHourly()">hourly</span>
+            </div>
             <div class="col-6 text-center">
                 <div class="row">
                     <div class="col-sm">
