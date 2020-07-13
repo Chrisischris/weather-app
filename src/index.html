@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="./css/styles.css" />
     <script src="./js/timeAndDate.js"></script>
+    <script src="./js/weather.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -17,7 +18,7 @@
     <title>Weather</title>
 </head>
 
-<body class="bg" onload="start()">
+<body class="bg">
 
     <div class="container-fluid sticky-top header-ed">
         <div class="row">
@@ -40,23 +41,27 @@
                 <table>
                     <tr class="table-title-ed">
                         <th>My Location</th>
-                        <th>Current Location</th>
+                        <th id="cityNameList" onclick="setCurrentLocation()">Location</th>
                     </tr>
                     <tr class="table-cities-ed">
                         <td></td>
-                        <td>Paris</td>
+                        <td onclick="setCity('Paris')">Paris</td>
                     </tr>
                     <tr class="table-cities-ed">
                         <td></td>
-                        <td>Cairo</td>
+                        <td onclick="setCity('Cairo')">Cairo</td>
                     </tr>
                     <tr class="table-cities-ed">
                         <td></td>
-                        <td>Hong Kong</td>
+                        <td onclick="setCity('Hong Kong')">Hong Kong</td>
                     </tr>
                     <tr class="table-cities-ed">
                         <td></td>
-                        <td>Buenos Aires</td>
+                        <td onclick="setCity('Buenos Aires')">Buenos Aires</td>
+                    </tr>                    
+                    <tr class="table-cities-ed">
+                        <td></td>
+                        <td>+</td>
                     </tr>
                 </table>
             </div>
@@ -66,7 +71,7 @@
                     <div class="row align-items-center h-100">
                         <div class="col">
                             <div class="row" style="height: 10px;">
-                                <div class="col text-center" style="font-size: 42px; font-weight: 600;">Location</div>
+                                <div id="cityNameCircle" class="col text-center" style="font-size: 42px; font-weight: 600;">Location</div>
                             </div>
                             <div class="row" style="height: 200px;">
                                 <div class="col-3 text-center align-self-center"
@@ -125,6 +130,12 @@
         </div>
     </div>
 
+    <script>
+        window.onload = function () {
+            startTime();
+            getLocation()
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

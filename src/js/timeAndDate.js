@@ -1,4 +1,4 @@
-function start() {
+function startTime() {
     var today = new Date();
     var mon = today.getMonth() + 1;
     var day = today.getDate();
@@ -16,5 +16,5 @@ function start() {
         document.getElementById('time').innerHTML = h + ":" + m+ " AM";
     }
     document.getElementById('date').innerHTML = mon + "." + day + "." + year;
-    var t = setTimeout(start, 500);
+    var t = setTimeout(startTime, 500);
 }
