@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <script src="./js/timeAndDate.js"></script>
+    <script src="./js/weather.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+
+    <title>Weather</title>
+</head>
+
+<body class="bg">
+
+    <div class="container-fluid sticky-top header-ed">
+        <div class="row">
+            <div class="col-4">
+                
+            </div>
+            <div id="time" class="col-4 text-center">
+                Time
+            </div>
+            <div id="date" class="col-4 text-right">
+                Date
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-5">
+        <div class="row">
+            <!-- Left Panel -->
+            <div class="col-lg-3 d-flex justify-content-center">
+                <table>
+                    <tr class="table-title-ed">
+                        <th>My Location</th>
+                        <th id="cityNameList" onclick="setCurrentLocation()">Location</th>
+                    </tr>
+                    <tr class="table-cities-ed">
+                        <td></td>
+                        <td onclick="setCity('Paris')">Paris</td>
+                    </tr>
+                    <tr class="table-cities-ed">
+                        <td></td>
+                        <td onclick="setCity('Cairo')">Cairo</td>
+                    </tr>
+                    <tr class="table-cities-ed">
+                        <td></td>
+                        <td onclick="setCity('Hong Kong')">Hong Kong</td>
+                    </tr>
+                    <tr class="table-cities-ed">
+                        <td></td>
+                        <td onclick="setCity('Buenos Aires')">Buenos Aires</td>
+                    </tr>
+                    <tr class="table-cities-ed">
+                        <td colspan="2">
+                            <div class="input-group mb-3">
+                                <input id="customLocation" type="text" class="form-control"
+                                    placeholder="Address/Zip Code">
+                                <div class="input-group-append">
+                                    <button onclick="setCity('customLocation')" class="btn btn-secondary"
+                                        type="button">Set</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Center Panel -->
+            <div class="col-lg-6 text-center">
+                <div class="circle-ed">
+                    <div class="row align-items-center h-100">
+                        <div class="col">
+                            <div class="row">
+                                <div id="cityNameCircle" class="col text-center text-truncate"
+                                    style="font-size: 42px; font-weight: 600;">Location</div>
+                            </div>
+                            <div class="row" style="height: 200px;">
+                                <div class="col-3 text-center align-self-center"
+                                    style="font-size: 28px; font-weight: 300;">
+                                    low
+                                    <br>
+                                    <span id="curTempLow">--</span>
+                                </div>
+                                <div id="curTemp" class="col-6 text-center" style="font-size: 176px; font-weight: 600;">
+                                    --</div>
+                                <div class="col-3 text-center align-self-center"
+                                    style="font-size: 28px; font-weight: 300;">
+                                    high
+                                    <br>
+                                    <span id="curTempHigh">--</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center" style="font-size: 36px; font-weight: 300;">
+                                    <img id="curInfoImg" src="resources/cloud.png" style="max-width: 75px;"
+                                        alt="Weather Type" class="img-fluid">
+                                    <br>
+                                    <span id="curInfo">Info</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Panel -->
+            <div class="col-lg-3 d-flex justify-content-center">
+                <table>
+                    <tr>
+                        <td class="table-activities-title-ed">Kite Flying</td>
+                        <td class="table-cities-ed">
+                            <span id="actKite" title="Current Wind Speed">--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-activities-title-ed">Jogging</td>
+                        <!-- Using humidity because chance of rain is unavailible with OpenWeather-->
+                        <td class="table-cities-ed">
+                            <span id="actJog" title="Current Humidy">--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-activities-title-ed">Skiing</td>
+                        <td class="table-cities-ed">
+                            <span id="actSki" title="Snow volume for last hour">--</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-bottom footer-ed">
+        <div class="row">
+            <div class="col-3 text-left align-self-end">
+                <span id="dailyBut" class="footer-unselc-ed" onclick="setDaily()">daily</span>
+                <span class="footer-selc-ed">/</span>
+                <span id="hourlyBut" class="footer-selc-ed" onclick="setHourly()">hourly</span>
+            </div>
+            <div class="col-6 text-center">
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="resources/cloud.png" style="max-width: 50px;" alt="Weather Type"
+                            class="img-fluid hourImg">
+                        <br>
+                        <span class="footer-temp-ed hourTemp">--</span>
+                        <br>
+                        <span class="footer-time-ed hourTime">---</span>
+                    </div>
+                    <div class="col-sm">
+                        <img src="resources/cloud.png" style="max-width: 50px;" alt="Weather Type"
+                            class="img-fluid hourImg">
+                        <br>
+                        <span class="footer-temp-ed hourTemp">--</span>
+                        <br>
+                        <span class="footer-time-ed hourTime">---</span>
+                    </div>
+                    <div class="col-sm">
+                        <img src="resources/cloud.png" style="max-width: 50px;" alt="Weather Type"
+                            class="img-fluid hourImg">
+                        <br>
+                        <span class="footer-temp-ed hourTemp">--</span>
+                        <br>
+                        <span class="footer-time-ed hourTime">---</span>
+                    </div>
+                    <div class="col-sm">
+                        <img src="resources/cloud.png" style="max-width: 50px;" alt="Weather Type"
+                            class="img-fluid hourImg">
+                        <br>
+                        <span class="footer-temp-ed hourTemp">--</span>
+                        <br>
+                        <span class="footer-time-ed hourTime">---</span>
+                    </div>
+                    <div class="col-sm">
+                        <img src="resources/cloud.png" style="max-width: 50px;" alt="Weather Type"
+                            class="img-fluid hourImg">
+                        <br>
+                        <span class="footer-temp-ed hourTemp">--</span>
+                        <br>
+                        <span class="footer-time-ed hourTime">---</span>
+                    </div>
+                    <div class="col-sm">
+                        <img src="resources/cloud.png" style="max-width: 50px;" alt="Weather Type"
+                            class="img-fluid hourImg">
+                        <br>
+                        <span class="footer-temp-ed hourTemp">--</span>
+                        <br>
+                        <span class="footer-time-ed hourTime">---</span>
+                    </div>
+                    <div class="col-sm">
+                        <img src="resources/cloud.png" style="max-width: 50px;" alt="Weather Type"
+                            class="img-fluid hourImg">
+                        <br>
+                        <span class="footer-temp-ed hourTemp">--</span>
+                        <br>
+                        <span class="footer-time-ed hourTime">---</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-right align-self-end">
+                <span id="metricBut" class="footer-unselc-ed" onclick="setMetric()">metric</span>
+                <span class="footer-selc-ed">/</span>
+                <span id="imperialBut" class="footer-selc-ed" onclick="setImperial()">imperial</span>
+                <br>
+                <span id="cBut" class="footer-unselc-ed" onclick="setMetric()">C</span>
+                <span class="footer-selc-ed">/</span>
+                <span id="fBut" class="footer-selc-ed" onclick="setImperial()">F</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            startTime();
+            getLocation()
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+body, html {
+    height: 100%;
+}
+
+* {
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bg {
+    background-image: url('../resources/background.jpg');
+    background-color: black;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-ed {
+    background-color: #00000073;
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.logo-ed {
+    max-height: 45px;
+    padding: 5px;
+}
+
+.table-title-ed {
+    font-weight: 600;
+    font-size: 20px;
+    border-bottom-width: 1pt;
+    border-bottom-color: #ffffff;
+    border-bottom-style: solid;
+}
+
+.table-activities-title-ed {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.table-cities-ed {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.circle-ed {
+    width: 450px;
+    height: 450px;
+    background-color: #00000073;
+    border-radius: 50%;
+    display:inline-block;
+}
+
+.footer-ed {
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+    background-color: #00000073;
+}
+
+.footer-temp-ed {
+    font-weight: 300;
+    font-size: 46px;
+}
+
+.footer-time-ed {
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.footer-selc-ed {
+    font-weight: 600;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.footer-unselc-ed {
+    font-weight: 300;
+    font-size: 28px;
+    color: #b3b3b3;
+}

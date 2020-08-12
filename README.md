@@ -1,3 +1,6 @@
+# How to Run
+Open up index.html in your preferred web browser. 
+
 # Weather App Code Challenge
 
 Many applications function as a way to view and interact with a data source. A great source of ever-changing data that is easily understood is meteorological data. In this code challenge, we're asking Applicants to create an app that receives data from a free Weather API and display that data in a responsive, performant, and modern way.
